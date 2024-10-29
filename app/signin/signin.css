@@ -1,0 +1,13 @@
+.card{
+    background-color: white;
+    width: 28rem;
+    padding: 2rem 1rem;
+    margin: auto;
+    border-radius: 10px;
+}
+
+.alert{
+    width: fit-content;
+    position: fixed;
+    bottom: 2rem;
+}

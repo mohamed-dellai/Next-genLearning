@@ -1,0 +1,39 @@
+.pereference{
+    font-size: .9em;
+    font-weight: 600;
+}
+.head{
+    font-weight: 700;
+    width: fit-content;
+    margin: auto;
+    font-size: 1.3em;
+}
+
+.cards {
+    position: relative;
+    color: #518669;
+    padding: 5px 10px;
+    font-weight: 500;
+    background-color: #F0FBF5;
+    border-radius: 4px;
+    display: inline-block;
+    margin-right: 5px;
+    transition: background-color 0.3s ease;
+  }
+  .cards:hover{
+    background-color: #ff3b3b;
+    color: white;
+    
+  }
+  .cards:hover > .span{
+    background-color: #ff3b3b;
+    color: white;
+    
+  }
+  .span{
+    color: rgb(0, 0, 0);
+    font-family: Arial, sans-serif !important;
+    margin-bottom: 2px;
+    margin-left: 5px;
+    font-size: 10px;
+  }
