@@ -1,7 +1,7 @@
 "use client"
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-export default function ChapterDisplay(numChapter=1,course=1) {
+export function ChapterDisplay(props) {
 
   const [chapterData,setChapter]=useState(
     {
@@ -10,9 +10,10 @@ export default function ChapterDisplay(numChapter=1,course=1) {
       image: "https://picsum.photos/seed/quantum/600/400"
     }
   )
+
   var getChapterContent=async()=>{
     try{
-      let result = await axios.get(`/api/home/getChapter?num=${1}&course=${1}`);
+      let result = await axios.get(`/api/home/getChapter?num=${props.chapter}&course=${props.course}`);
       setChapter(result.data)
     }
     catch(error){
@@ -23,7 +24,7 @@ export default function ChapterDisplay(numChapter=1,course=1) {
     getChapterContent()
   })
   const handleQuizNavigation = () => {
-    console.log("Navigating to quiz section");
+    props.quiz(true)
   };
 
   return (

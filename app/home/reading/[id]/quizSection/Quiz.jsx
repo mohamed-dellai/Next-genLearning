@@ -5,7 +5,7 @@ import axios from 'axios';
 import {QuizQuestion} from "./quizQuestions"
 import "./quizSection.css"
 import { Nav } from '@/components/nav';
-export default function QuizComponent(chapterId=1) {
+export function QuizComponent(chapterId=1) {
     const [quizData,setQuizes]=useState([])
   const [answers, setAnswers] = useState([]);
   const [showAnimation, setShowAnimation] = useState(false);
