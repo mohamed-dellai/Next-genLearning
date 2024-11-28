@@ -1,14 +1,10 @@
 "use client"
 import React, { useEffect, useState } from 'react';
+import { Nav } from '@/components/nav';
 import axios from 'axios';
 export function ChapterDisplay(props) {
 
-  const [chapterData,setChapter]=useState(
-    {
-      title: "The Quantum Paradox",
-      content: "In the year 2150, 15-year-old Zara found herself at the center of a mind-bending mystery. The quantum computers that powered their city had started to malfunction, causing reality itself to glitch. As she delved deeper into the problem, Zara discovered an intricate web of time loops and parallel universes. With her knowledge of advanced physics and her quick thinking, she raced against time to prevent the collapse of multiple realities. Little did she know, the solution would challenge everything she thought she knew about the nature of existence itself.",
-      image: "https://picsum.photos/seed/quantum/600/400"
-    }
+  const [chapterData,setChapter]=useState([]
   )
 
   var getChapterContent=async()=>{
@@ -28,7 +24,9 @@ export function ChapterDisplay(props) {
   };
 
   return (
-    <div className="max-w-5xl mx-auto p-8 bg-gradient-to-br from-indigo-50 to-purple-50 rounded-2xl shadow-2xl border border-indigo-200">
+    <>
+    <Nav></Nav>
+    <div className="max-w-5xl  mx-auto p-8 bg-gradient-to-br from-indigo-50 to-purple-50 rounded-2xl shadow-2xl border border-indigo-200" style={{marginTop: "50px"}}>
       <h2 className="text-5xl font-extrabold text-center mb-8 text-indigo-800 font-sans tracking-tight">
         {chapterData.title}
       </h2>
@@ -57,5 +55,6 @@ export function ChapterDisplay(props) {
         </button>
       </div>
     </div>
+    </>
   );
 }

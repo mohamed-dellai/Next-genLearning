@@ -1,6 +1,5 @@
 
 export function QuizQuestion({ data, onAnswer, isAnswered, isCorrect }) {
-  console.log(data)
     return (
       <div className="mb-8 p-6 bg-white rounded-xl shadow-md">
         <h3 className="text-xl font-bold text-indigo-800 mb-4">{data.question}</h3>
