@@ -4,14 +4,17 @@ import { Avatar } from "@material-tailwind/react";
 import axios from "axios";
 import Link from 'next/link';
 import { useEffect, useState } from "react";
-export function Nav() {
+import usePointsStore from "../app/globalState/global";
 
-  const [points,setPoints]=useState(0)
-   useEffect(()=>{
+export function Nav() {
+  const points = usePointsStore((state) => state.points);
+  const addPoints = usePointsStore((state) => state.addPoints);
+
+  useEffect(()=>{
     const getPoints=async()=>{
       try{
         const p=await axios.get("http://localhost:3000/api/home/getPoints")
-        setPoints(p.data.points)  
+        addPoints(p.data.points)  
       }
       catch(err){
         console.log(err)

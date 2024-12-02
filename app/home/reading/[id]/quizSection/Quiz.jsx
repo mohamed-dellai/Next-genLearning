@@ -11,7 +11,6 @@ export function QuizComponent(props) {
     const [answers, setAnswers] = useState([]);
     const [showAnimation, setShowAnimation] = useState(false);
     const [animationPosition, setAnimationPosition] = useState({ x: 0, y: 0 });
-
     const getQuizes = async () => {
         try {
             const quizes = await axios.get(`http://localhost:3000/api/home/getQuizes/${props.chapter}`)
