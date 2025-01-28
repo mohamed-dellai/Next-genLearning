@@ -14,7 +14,7 @@ export default function ReadingFlow() {
     const [chapterId, setChapterId] = useState([]);
     const [quizId, setQuizId] = useState([]);
     const [isCompleted, setIsCompleted] = useState(false);
-    const [loading, setLoading] = useState(true); // Loading state
+    const [loading, setLoading] = useState(true);
 
     function goToQuiz(bool) {
         setShow(bool);
@@ -38,9 +38,10 @@ export default function ReadingFlow() {
             setQuizId(quizIds);
             setChapterId(chapterIds);
             console.log(result.data)
-            setLoading(false); // Set loading to false when data is ready
+            setLoading(false);
         } catch (e) {
             console.log(e);
+            setLoading(false);
         }
     };
 
@@ -53,7 +54,8 @@ export default function ReadingFlow() {
     if (loading) {
         return (
             <div className="flex flex-col items-center justify-center min-h-screen bg-gradient-to-br from-indigo-50 to-purple-50">
-                <p className="text-2xl font-semibold text-indigo-800">Loading...</p>
+                <div className="animate-spin rounded-full h-32 w-32 border-t-2 border-b-2 border-indigo-500"></div>
+                <p className="mt-4 text-2xl font-semibold text-indigo-800">Loading...</p>
             </div>
         );
     }
@@ -61,25 +63,25 @@ export default function ReadingFlow() {
     if (isCompleted) {
         return (
             <div className="flex flex-col items-center justify-center min-h-screen bg-gradient-to-br from-indigo-50 to-purple-50">
-                <h1 className="text-4xl font-bold text-indigo-800 mb-4">Congratulations!</h1>
-                <p className="text-xl text-gray-700 mb-8">You've completed all chapters and quizzes.</p>
-                <div className="text-6xl mb-8">🎉</div>
+                <h1 className="text-5xl font-bold text-indigo-800 mb-6">Congratulations!</h1>
+                <p className="text-2xl text-gray-700 mb-10">You've completed all chapters and quizzes.</p>
+                <div className="text-8xl mb-10">🎉</div>
                 <button 
-                    onClick={() => window.location.href = '/courses'} 
-                    className="px-6 py-3 bg-indigo-600 text-white font-bold rounded-full text-lg shadow-lg transition-all duration-300 hover:bg-indigo-700 hover:shadow-xl focus:outline-none focus:ring-4 focus:ring-indigo-300 transform hover:scale-105"
+                    onClick={() => window.location.href = '/'} 
+                    className="px-8 py-4 bg-indigo-600 text-white font-bold rounded-full text-xl shadow-lg transition-all duration-300 hover:bg-indigo-700 hover:shadow-xl focus:outline-none focus:ring-4 focus:ring-indigo-300 transform hover:scale-105"
                 >
-                    Back to Courses
+                    Back to Home
                 </button>
             </div>
         );
     }
 
     return (
-        <>
+        <div className="min-h-screen bg-gradient-to-br from-indigo-50 to-purple-50 py-10">
             {!showQuiz ? 
                 <ChapterDisplay quiz={goToQuiz} chapter={chapterId[currentChapter]} course={id} /> : 
                 <QuizComponent chapter={chapterId[currentChapter]} nextChapter={nextChapter} />
             }
-        </>
+        </div>
     );
 }
