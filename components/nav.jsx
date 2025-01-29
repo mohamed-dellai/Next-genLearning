@@ -40,7 +40,7 @@ export function Nav() {
             <NavLink href="/home/giftsection" icon={<GiftIcon />}>
               Gifts
             </NavLink>
-            <NavLink href="#" icon={<UserIcon />}>
+            <NavLink href="/home/parent" icon={<UserIcon />}>
               Parents section
             </NavLink>
             <button className="ring-offset-background focus-visible:ring-ring hover:bg-primary/90 inline-flex h-10 items-center justify-center whitespace-nowrap rounded-md bg-blue-500 px-4 py-2 text-sm font-medium text-white transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50">
